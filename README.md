@@ -77,7 +77,7 @@ The entire project took me around **~6 hours**, broken down into **5 stages**
    page look more readable
 
 6. **Polishing/Cleanup (1 hr)**: Clean up of the project, created the setup.sh script to automate setup. It was also at this stage that I realized I hadn't commited since the initial project setup, so I tried to simulate that
-   by add each stage individually with their own commit message.
+   by adding each stage individually with their own commit message.
 
 
    
