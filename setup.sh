@@ -4,7 +4,7 @@ set -e
 
 if [ ! -d "venv" ]; then
 	echo "Creating virtual enviroment..."
-	python -m venv venv || { echo "Failed to create venv"; exit 1; }
+	python3 -m venv venv || { echo "Failed to create venv"; exit 1; }
 fi
 
 echo "Activating the virtual enviroment..."
@@ -16,5 +16,5 @@ pip install -r requirements.txt || { echo "Failed to install dependencies"; exit
 
 
 echo "Starting server..."
-python manage.py runserver
+python3 manage.py runserver
 	
