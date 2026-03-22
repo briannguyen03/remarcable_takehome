@@ -26,21 +26,21 @@ def movie_list(request):
 
 
     if search_querry:
-        #Uses django Q to search for both the movie title, and description
-        #Uses __icontains to search case insensitive
+        #Uses django Q objects to search for both the movie title, and description
+        #Uses icontains to match tittle and description, case insensitive
         movies = movies.filter(
                 Q(movie_title__icontains=search_querry) | Q(movie_description__icontains=search_querry)
                   )
 
     if rating_filter:
-        #Uses __gte to get te greater than or equal rating
+        #Uses gte to get te greater than or equal rating
         movies = movies.filter(movie_rating__gte=rating_filter)
 
     if category_filter:
         movies = movies.filter(category_id=category_filter)
 
     if tag_filter:
-        #Uses the .distinct() querryset modifier to return distinct entries
+        #Uses the .distinct() querryset modifier to return distinct entries, and prevent duplicate results
         movies = movies.filter(tags=tag_filter).distinct()
 
 
