@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie LLC</title>
+    <style>
+        /* text formatting */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 40px;
+        }
+
+        /*. filter bar style */
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        /* movie card grid  */
+        .movie-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        /* movie cards */
+        .movie-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            transition: transform 0.2s; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .movie-card:hover {
+            transform: translateY(-5px);
+            border-color: #007bff;
+        }
+
+        .movie-title {
+            font-size: 1.2em;
+            color: #007bff;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .movie-meta {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .movie-description {
+            font-style: italic;
+            color: #555;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <h1>Movie Catalog</h1>
+
+    <form method="GET">
+        <input type="text" name="search" placeholder="Search by title..." value="{{ request.GET.search }}">
+        
+        <select name="category">
+            <option value="">All Categories</option>
+            {% for cat in categories %}
+                <option value="{{ cat.id }}" {% if request.GET.category == cat.id|stringformat:"s" %}selected{% endif %}>
+                {{ cat.category_name }}
+                </option>
+            {% endfor %}
+        </select>
+
+        <select name="tag">
+            <option value="">All Tags</option>
+            {% for t in tags %}
+                <option value="{{ t.id }}" {% if request.GET.tag == t.id|stringformat:"s" %}selected{% endif %}>
+                {{ t.tag_name }}
+                </option>
+            {% endfor %}
+        </select>
+
+        <select name="rating">
+            <option value="">Any Rating</option>
+            <option value="3" {% if request.GET.rating == "3" %}selected{% endif %}> >= 3 stars</option>
+            <option value="4" {% if request.GET.rating == "4" %}selected{% endif %}> >= 4 stars</option>
+            <option value="5" {% if request.GET.rating == "5" %}selected{% endif %}> 5 stars</option>
+        </select>
+
+        <button type="submit">Filter</button>
+        
+        <a href="{% url 'movie_list' %}" style="text-decoration: none; margin-left: 10px;">
+            <button type="button">Clear Filters</button>
+        </a>
+    </form>
+
+    <hr>
+
+    <ul class="movie-container">
+        {% for movie in movies %}
+            <li class="movie-card">
+                <strong class="movie-title">{{ movie.movie_title }}</strong>
+                <div class="movie-meta">
+                    ({{ movie.movie_release.year }}) &bull; 
+                    Rating: {{ movie.movie_rating }}/5 &bull; 
+                    Genre: <u>{{ movie.category }}</u>
+                </div>
+                <p class="movie-description">{{ movie.movie_description }}</p>
+            </li>
+        {% empty %}
+            <p>No movies matched your search term, try something different.</p>
+        {% endfor %}
+    </ul>
+</body>
+</html>
