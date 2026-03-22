@@ -5,7 +5,7 @@ This guide assumes your are on a **Linux/Unix system** so all comands are given 
 ### Setup Script
 1. Clone this repo:
    ```bash
-   git clone https://github.com/briannguyen03/remarcable_takehome
+   git clone https://github.com/briannguyen03/remarcable_takehome.git
    cd remarcable_takehome
    ```
   
@@ -23,7 +23,7 @@ This guide assumes your are on a **Linux/Unix system** so all comands are given 
 ### Manual Setup
 1. Clone this repo:
    ```bash
-   git clone https://github.com/briannguyen03/remarcable_takehome
+   git clone https://github.com/briannguyen03/remarcable_takehome.git
    cd remarcable_takehome
    ```
    
@@ -49,6 +49,50 @@ This guide assumes your are on a **Linux/Unix system** so all comands are given 
 login creds
 * Username: brian
 * Password: password123
+
+# Usage
+After running the dev server. The app should be already running on the root url (ie. http://127.0.0.1:8000 should display the page)
+The top half has a search bar, category filter, tag filter, rating filter, the filter button, and a clear filters button
+
+The search bar searches for both the tittle and description of a movie. So if you can specifically search for "The Social Network" or "Facebook" to get the same result.
+
+Filtering can be done with
+
+**Categories**:
+There are 5 categories,
+1. Action
+2. Drama
+3. Horror
+4. Sci-Fi
+5. Animation
+6. Comedy
+
+**Tags**:
+There are 10 tags,
+1. Comedy
+2. Action
+3. Drama
+4. Indie
+5. Adventure
+6. Thriller
+7. Classic
+8. Sci-Fi
+9. Top 50
+10. Top 100
+
+**Ratings**:
+You can choose to filter for movies with
+* at least 3 stars
+* at least 4 starrs
+* only 5 stars
+
+Ratings filter assumes you don't want to filter for a rating below 3 stars
+
+The filters are stackable, as in you can search for a title/description, and have a category + tag + rating filter all at once
+
+
+There is a "Clear Filter" button to clear selected filters
+
 
 # Process
 
