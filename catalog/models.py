@@ -60,10 +60,10 @@ class Movie(models.Model):
                                        help_text="Rate the movie between 1-5"
                                        )
     
-    director = models.ForeignKey(Director, on_delete=models.SET_NULL, null=True, related_name="movies")
+    director = models.ForeignKey(Director, on_delete=models.SET_NULL, null=True)
     tags = models.ManyToManyField(Tag, blank=True)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="movies")
-    actors = models.ManyToManyField(Actor, related_name="movies")
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    actors = models.ManyToManyField(Actor)
 
     def __str__(self):
         return self.movie_title
