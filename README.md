@@ -2,6 +2,14 @@
 
 This guide assumes your are on a **Linux/Unix system** so all comands are given in **bash**.
 
+
+### Requirements
+* **Python:** 3.10 or higher
+* **Django:** 6.0.3
+
+
+If python version is < 3.10 then the setup script won't work. But you can manualy install the dependencies if needed
+
 ### Setup Script
 1. Clone this repo:
    ```bash
