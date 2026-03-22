@@ -64,6 +64,8 @@ The top half has a search bar, category filter, tag filter, rating filter, the f
 
 The search bar searches for both the tittle and description of a movie. So if you can specifically search for "The Social Network" or "Facebook" to get the same result.
 
+More than one tag can be applied using the Ctrl or Cmd key while selecting tags.
+
 Filtering can be done with
 
 **Categories**:
