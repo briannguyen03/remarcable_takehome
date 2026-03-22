@@ -9,7 +9,7 @@ This guide assumes your are on a **Linux/Unix system** so all comands are given 
    cd remarcable_takehome
    ```
   
-2. Run the included setup.sh script to automatically set up the **enviroment**, **install dependencies**, and **start the server**:
+2. Run the included setup.sh script to automatically set up the **environment**, **install dependencies**, and **start the server**:
    ```bash
     ./setup.sh
     ```
@@ -57,16 +57,16 @@ Note: I haven't used django before, so a lot of time was spent going back and fo
 I stated at **which** and for **what** I used it for below.
 
 
-Also due me juggling learning the framework during the build, it slipped my mind to commit at each stage, so the commit history will not acurately reflect the time spent for each module
+Also due me juggling learning the framework during the build, it slipped my mind to commit at each stage, so the commit history will not accurately reflect the time spent for each module
 
-The entire project took me around ~6 hours, broken down into 5 stages
+The entire project took me around **~6 hours**, broken down into **5 stages**
 1. **Design (40 minutes)**: At this stage I decided I wanted to pursue a "Blockbuster/Netflix" style model where the products are movies. 
    I modeled the relationship between these main tables on a whiteboard, and added aditional tables to support it like, Actor, and Director
 
 2. **catalog/models.py (1 hr)**: Once I had the structure of my models, I started implementing the classes in models.py.
-   Most of what I did here, I learned from the django official tuttorial and documentation.
+   Most of what I did here, I learned from the django official tutorial and documentation.
   
-3. **catalog/views.py (1.5 hr)**: After migrating the model classes. I built the search and filtering logic for the app. I used Gemini to identify relevant sections of the QuerySet API, and cross referenced it for implementation details. This process saved me alot of time, because manually reading through the lengthy docs for a specifc function would have
+3. **catalog/views.py (1.5 hr)**: After migrating the model classes. I built the search and filtering logic for the app. I used Gemini to identify relevant sections of the QuerySet API (specifcally Q objects), and cross referenced it for implementation details. This process saved me alot of time, because manually reading through the lengthy docs for a specifc function would have
    taken more time than I had. I also created the urls.py file to add the trigger for my view function, and obviously also editted the global urlConf to include my app.
    
 4. **Admin setup and populating the db (1.5 hr)**: I set up the admin config, and added 20 movies, 6 categories, and 10 tags. This part took quite a bit of time because I was manually entering data for each entry.
